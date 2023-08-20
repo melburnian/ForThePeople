@@ -1,0 +1,53 @@
+import random
+
+def generate_random_id():
+  value = random.randint(100_000_000, 1_000_000_000)
+  return generate_id_from_value(value)
+
+def generate_id_from_value(x):
+  d1 = x // 100_000_000
+  d2 = x // 10_000_000 % 10
+  d3 = x // 1_000_000 % 10
+  d4 = x // 100_000 % 10
+  d5 = x // 10_000 % 10
+  d6 = x // 1000 % 10
+  d7 = x // 100 % 10
+  d8 = x // 10 % 10
+  d9 = x % 10
+  odd_sum = d1 + d3 + d5 + d7 + d9
+  even_sum = d2 + d4 + d6 + d8
+  first_checksum = ((odd_sum * 7) - even_sum) % 10
+  if first_checksum < 0:
+    first_checksum += 10
+  second_checksum = (odd_sum + even_sum + first_checksum) % 10
+  return f"{x}{first_checksum}{second_checksum}"
+
+if __name__ == "__main__":
+  print(generate_random_id())
+
+
+'''
+A Digital Adventure in Istanbul
+
+In the heart of Istanbul's bustling digital market district, Elif worked in a tiny workshop that looked out of place amidst the sleek tech stores. An old wooden sign dangled above the entrance, reading, ~Elif's Solutions for the Modern World.~
+
+Elif had a knack for solving the quirkiest of problems. She did everything from retrieving forgotten digital memories to writing code that made life simpler in unexpected ways. While most approached her about malfunctioning antiques or devices that held sentimental value, today was different.
+
+A tall man with curious spectacles, Osman, entered the workshop, looking slightly out of breath. "Elif," he panted, "I've been told you can help with... unique issues?"
+
+Elif looked up from her workbench, "Unique is my specialty. What can I do for you?"
+
+Osman hesitated, "I run an online Turkish bookshop for international readers. They often want to access special discounts available only to locals. I thought, what if I could generate random Turkish National ID numbers? Not for any malintent, but to give them a genuine feel of shopping like a local."
+
+Elif raised an eyebrow. "A fascinating challenge. Let me see what I can do."
+
+Hours went by. Using a mix of logic and a bit of digital magic, Elif developed a simple but effective code. It would generate a random Turkish National ID, maintaining the original structure's integrity. She ran the program and showed the result to Osman.
+
+Osman's eyes widened in delight, "It's perfect! But how?"
+
+Elif smiled, "It's about understanding the pattern and playing with numbers. I've ensured that the generated IDs feel real but are random enough to avoid genuine overlaps."
+
+Gratefully, Osman said, "This will bring so much joy to my customers. They'll feel a little more Turkish, even thousands of miles away."
+
+As Osman left, Elif felt a familiar satisfaction. Another day, another problem was solved, all in the heart of Istanbul's digital realm. She took a moment, looking out of her workshop window at the bustling streets, realizing that even in this age of rapid technology, a touch of human ingenuity made all the difference.
+'''

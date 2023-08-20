@@ -34,4 +34,7 @@ This repository contains diverse code snippets, ranging from utilities to automa
 #### Who maintains and contributes to the project:
 This project is maintained by [melburnian](https://github.com/melburnian). Contributions are warmly welcomed! If you have a helpful snippet or improvement in mind, please consider making a pull request or opening an issue to discuss.
 
-
+| Name       | About          | 
+| ------------- |:-------------:|
+| [TurkishIDGenerator](https://github.com/melburnian/ForThePeople/blob/main/TurkishIDGenerator)    | Useful for online stores requiring a Turkish ID number.|
+| [TurkishIDValidator](https://github.com/melburnian/ForThePeople/blob/main/TurkishIDValidator)| Validates Turkish ID numbers. Does not validate whether the number has been issued by government.      |

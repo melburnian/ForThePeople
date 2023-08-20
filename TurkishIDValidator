@@ -1,0 +1,45 @@
+def is_valid_turkish_id(turkish_id):
+    if len(turkish_id) != 11 or not turkish_id.isdigit():
+        return False
+
+    d = [int(digit) for digit in turkish_id]
+
+    odd_sum = sum(d[i] for i in range(0, 9, 2))
+    even_sum = sum(d[i] for i in range(1, 8, 2))
+
+    first_checksum = ((odd_sum * 7) - even_sum) % 10
+    if first_checksum < 0:
+        first_checksum += 10
+
+    second_checksum = (odd_sum + even_sum + first_checksum) % 10
+
+    return first_checksum == d[9] and second_checksum == d[10]
+
+
+# Test the function
+turkish_id = input("Enter a Turkish National ID: ")
+
+if is_valid_turkish_id(turkish_id):
+    print(f"{turkish_id} is a valid Turkish National ID.")
+else:
+    print(f"{turkish_id} is not a valid Turkish National ID.")
+
+'''
+Sema, an enthusiastic young archaeologist, had recently discovered an old journal in her grandmother's attic in Istanbul. The leather-bound journal, embellished with intricate patterns, was said to have belonged to her great-great-grandfather, a prominent merchant of the Ottoman era. 
+
+To her astonishment, she found mentions of a hidden family heirloom, its location known only by a series of clues spread throughout Istanbul.
+
+One clue, cryptically written, stated: "To find the next sign, assure your family's identity in the cafe where east meets west."
+
+Sema was puzzled but determined. Following some research, she deduced that the "cafe where east meets west" was an old coffeehouse on the banks of the Bosphorus, where tales of Europe and Asia blending into one were often shared over cups of Turkish coffee.
+
+Upon arriving, she was met with a peculiar digital terminal - a relic of modern times amidst the cafe's nostalgic ambience. It prompted: "Enter a valid Turkish National ID to proceed."
+
+Sema hesitated. Her own ID was well-known in archaeological circles, and using it might alert rivals. She needed a way to validate her lineage without revealing her identity.
+
+She remembered an old Python script she once stumbled upon - one that could validate Turkish National IDs. Using her laptop, she quickly adapted the screenplay. She entered an old family ID number from her grandmother's records, hoping it'd work.
+
+Upon entering the number, a small drawer below the terminal opened, to her surprise. Inside was an ornate compass, pointing steadfastly to the north. Engraved on its back was the next clue.
+
+The script validated her family's historical identity and preserved her secrecy, allowing her quest for the hidden heirloom to continue.
+'''
